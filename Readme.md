@@ -1,4 +1,7 @@
 # GridView for MVC - How to save a pdf document to a database and display it
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/397242559/)**
+<!-- run online end -->
 
 <p>A pdf file is stored in a database as a byte array. To display this file as a pdf, it is necessary to pass this byte array to the Response. This can be done by implementing your own <a href="https://docs.microsoft.com/en-us/troubleshoot/aspnet/http-modules-handlers">HttpHandler</a>: </p> 
 
