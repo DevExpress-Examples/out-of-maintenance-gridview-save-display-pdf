@@ -1,6 +1,7 @@
 # GridView for MVC - How to save a pdf document to a database and display it
 
 <p>A pdf file is stored in a database as a byte array. To display this file as a pdf, it is necessary to pass this byte array to the Response. This can be done by implementing your own <a href="https://docs.microsoft.com/en-us/troubleshoot/aspnet/http-modules-handlers">HttpHandler</a>: </p> 
+
 ```cs
 public class FileDownloadHandler : IHttpHandler {
     DXWebApplication1.Models.PdfBaseEntities db = new DXWebApplication1.Models.PdfBaseEntities();
@@ -38,6 +39,7 @@ public class FileDownloadHandler : IHttpHandler {
 
 ```
 <p>This handler should be added to the server.webServer section of web.config:</p>
+
 ```xml
 <system.webServer>  
   <handlers>
@@ -116,6 +118,7 @@ function onFileUploadComplete(s, e, keyvalue) {
 }
 ```
 <p>A new uploaded file is saved to the Session variable in the FileUploadComplete event:</p>
+
 ```cs
 public static void uploadControl_FileUploadComplete(object sender, FileUploadCompleteEventArgs e) {
     if (e.UploadedFile.IsValid) {
@@ -124,6 +127,7 @@ public static void uploadControl_FileUploadComplete(object sender, FileUploadCom
 }
 ```
 <p>Then, in the Update/Insert actions of the data source, the byte array is stored to the database:</p>
+
 ```cs
 [HttpPost, ValidateInput(false)]
 public ActionResult GridViewPartialAddNew(DXWebApplication1.Models.TableWithPdf item) {
