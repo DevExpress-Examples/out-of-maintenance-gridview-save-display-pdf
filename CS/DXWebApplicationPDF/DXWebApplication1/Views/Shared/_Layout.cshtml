@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>@ViewBag.Title</title>
+
+@Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView }
+)
+@Html.DevExpress().GetScripts( 
+        new Script { ExtensionSuite = ExtensionSuite.GridView }
+)
+    <script>
+        function onFileUploadComplete(s, e, keyvalue) {
+            if (e.isValid) {                
+                if(hle) hle.SetClientVisible(false);
+                lble.SetText('A new file is uploaded, but is not saved')
+            }
+        }
+    </script>
+</head>
+
+<body>
+    @RenderBody()
+</body>
+</html>
